@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kompetencijos - FolioOne</title>
+  <meta name="description" content="Mano kompetencijų pažanga">
+
+  <link href="assets/img/welsh-corgi-icon-cute-puppy-on-a-black-background-dog-icon-animal-logo-design-template-vector.jpg" rel="icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
+
+  <style>
+    .skill-card__select {
+      margin-top: 12px;
+      padding: 7px 10px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #2bb3a3;
+      background: #131922;
+      color: #f1f5f9;
+      cursor: pointer;
+    }
+
+    .skill-card__select:focus {
+      outline: 2px solid #2bb3a3;
+    }
+
+    .xp-progress__fill {
+      transition: width 0.4s ease;
+      min-width: 0;
+    }
+
+    .skill-card {
+      margin-bottom: 12px;
+    }
+  </style>
+
+</head>
+
+<body class="starter-page-page">
+
+  <!-- HEADER -->
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Pagrindinis</a></li>
+          <li><a href="about.html">Apie</a></li>
+          <li><a href="resume.html">Patirtis</a></li>
+          <li><a href="services.html">Paslaugos</a></li>
+          <li><a href="portfolio.html">Atlikti darbai</a></li>
+          <li><a href="contact.html">Kontaktai</a></li>
+          <li><a href="kompetencijos.html" class="active">Kompetencijos</a></li>
+        </ul>
+
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <section id="kompetencijos" class="skills">
+
+      <div class="skills__head">
+        <h2 class="skills__title">🎓 Kompetencijų pažanga</h2>
+
+        <p class="skills__subtitle">
+          Mano įgūdžių kelias web programuotojo profesijoje
+        </p>
+      </div>
+
+      <!-- XP, LYGIS IR RANGAS -->
+      <div class="skills__summary">
+
+        <div class="info-box info-box--xp">
+          <span class="info-box__icon">⭐</span>
+          <div>
+            <span class="info-box__label">Bendras XP:</span>
+            <strong class="info-box__value" id="totalXP">180 XP</strong>
+          </div>
+        </div>
+
+        <div class="info-box info-box--level">
+          <span class="info-box__icon">📊</span>
+          <div>
+            <span class="info-box__label">Lygis:</span>
+            <strong class="info-box__value" id="currentLevel">3</strong>
+          </div>
+        </div>
+
+        <div class="info-box info-box--rank">
+          <span class="info-box__icon">🏆</span>
+          <div>
+            <span class="info-box__label">Rangas:</span>
+            <strong class="info-box__value" id="currentRank">Specialistas</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROGRESO JUOSTA -->
+      <div class="xp-progress">
+
+        <div class="xp-progress__label" id="progressLabel">
+          Progresas iki kito lygio
+        </div>
+
+        <div class="xp-progress__track">
+          <div class="xp-progress__fill" id="progressBar" style="width: 20%;">
+            20%
+          </div>
+        </div>
+
+      </div>
+
+      <!-- STATISTIKA -->
+      <div class="skills__stats">
+
+        <div class="stat">
+          💻 Įgūdžiai:
+          <strong id="totalSkills">8</strong>
+        </div>
+
+        <div class="stat">
+          ✅ Atlikta:
+          <strong id="completedSkills">4</strong>
+        </div>
+
+        <div class="stat">
+          🕒 Procentas:
+          <strong id="completedPercent">50%</strong>
+        </div>
+
+      </div>
+
+      <!-- KANBAN LENTA -->
+      <div class="kanban">
+
+        <div class="kanban__col kanban__col--planned">
+          <h3 class="kanban__col-title">📅 Planuojama</h3>
+          <div class="kanban__cards" id="plannedCards"></div>
+        </div>
+
+        <div class="kanban__col kanban__col--learning">
+          <h3 class="kanban__col-title">📖 Mokomasi</h3>
+          <div class="kanban__cards" id="learningCards"></div>
+        </div>
+
+        <div class="kanban__col kanban__col--done">
+          <h3 class="kanban__col-title">✅ Atlikta</h3>
+          <div class="kanban__cards" id="doneCards"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+
+      <div class="copyright text-center">
+        <p>
+          © <span>Copyright</span>
+          <strong class="px-1 sitename">FolioOne</strong>
+          <span>All Rights Reserved</span>
+        </p>
+      </div>
+
+      <div class="social-links d-flex justify-content-center">
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top"
+    class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- LD11 + LD12 JAVASCRIPT -->
+  <script>
+
+    // 1. KONSTANTOS IR ĮGŪDŽIŲ DUOMENŲ MASYVAS
+
+    const STATUSES = ["Planuojama", "Mokomasi", "Atlikta"];
+
+    const LEVELS = [
+      { level: 1, min: 0,   max: 50,   rank: "Pradedantysis" },
+      { level: 2, min: 50,  max: 150,  rank: "Praktikantas" },
+      { level: 3, min: 150, max: 300,  rank: "Specialistas" },
+      { level: 4, min: 300, max: null, rank: "Profesionalas" }
+    ];
+
+    const skills = [
+      { name: "JavaScript įvadas",   status: "Planuojama", xp: 40, icon: "🟨" },
+      { name: "DOM valdymas",        status: "Planuojama", xp: 30, icon: "🌳" },
+      { name: "CSS stilizavimas",    status: "Mokomasi",   xp: 50, icon: "🎨" },
+      { name: "Formų validacija",    status: "Mokomasi",   xp: 30, icon: "📝" },
+      { name: "HTML pagrindai",      status: "Atlikta",    xp: 40, icon: "🧱" },
+      { name: "Responsive dizainas", status: "Atlikta",    xp: 40, icon: "📱" },
+      { name: "GitHub Pages",        status: "Atlikta",    xp: 30, icon: "🐙" },
+      { name: "Flexbox / Grid",      status: "Atlikta",    xp: 70, icon: "🔲" }
+    ];
+
+
+    // 2. DUOMENŲ ATKŪRIMAS IR IŠSAUGOJIMAS (LOCALSTORAGE)
+
+    function loadSkills() {
+      try {
+        const saved = localStorage.getItem("skillsData");
+        if (!saved) return;
+
+        const parsed = JSON.parse(saved);
+        if (!Array.isArray(parsed)) return;
+
+        skills.forEach(skill => {
+          const savedSkill = parsed.find(item => item.name === skill.name);
+          if (savedSkill && STATUSES.includes(savedSkill.status)) {
+            skill.status = savedSkill.status;
+          }
+        });
+      } catch (error) {
+        console.log("Nepavyko atkurti išsaugotų duomenų.");
+      }
+    }
+
+    function saveSkills() {
+      try {
+        const data = skills.map(skill => ({
+          name: skill.name,
+          status: skill.status
+        }));
+        localStorage.setItem("skillsData", JSON.stringify(data));
+      } catch (error) {
+        console.log("Nepavyko išsaugoti duomenų.");
+      }
+    }
+
+
+    // 3. LYGIO, RANGO IR PROGRESO NUSTATYMAS
+
+    function getLevelInfo(totalXP) {
+      const current = [...LEVELS].reverse().find(l => totalXP >= l.min);
+
+      let progress = 100;
+      if (current.max !== null) {
+        progress = (totalXP - current.min) / (current.max - current.min) * 100;
+      }
+
+      return { level: current.level, rank: current.rank, progress: progress };
+    }
+
+
+    // 4. ĮGŪDŽIŲ KORTELIŲ GENERAVIMAS
+
+    function renderSkills() {
+
+      const columns = {
+        "Planuojama": document.getElementById("plannedCards"),
+        "Mokomasi":   document.getElementById("learningCards"),
+        "Atlikta":    document.getElementById("doneCards")
+      };
+
+      const badges = {
+        "Planuojama": "badge--planned",
+        "Mokomasi":   "badge--learning",
+        "Atlikta":    "badge--done"
+      };
+
+      Object.values(columns).forEach(col => col.innerHTML = "");
+
+      skills.forEach((skill, index) => {
+
+        const card = document.createElement("article");
+        card.className = "skill-card";
+
+        const options = STATUSES.map(status => `
+          <option value="${status}" ${skill.status === status ? "selected" : ""}>
+            ${status}
+          </option>
+        `).join("");
+
+        card.innerHTML = `
+          <span class="skill-card__icon">${skill.icon}</span>
+
+          <div class="skill-card__body">
+            <h4 class="skill-card__name">${skill.name}</h4>
+
+            <div class="skill-card__meta">
+              <span class="badge ${badges[skill.status]}">
+                Būsena: ${skill.status}
+              </span>
+              <span class="skill-card__xp">XP: ${skill.xp}</span>
+            </div>
+
+            <select class="skill-card__select"
+                    aria-label="Keisti ${skill.name} būseną">
+              ${options}
+            </select>
+          </div>
+        `;
+
+        card.querySelector("select").addEventListener("change", event => {
+          changeStatus(index, event.target.value);
+        });
+
+        columns[skill.status].appendChild(card);
+      });
+    }
+
+
+    // 5. BŪSENOS KEITIMAS
+
+    function changeStatus(index, newStatus) {
+      if (!STATUSES.includes(newStatus)) return;
+
+      skills[index].status = newStatus;
+
+      saveSkills();
+      updateAll();
+    }
+
+
+    // 6. XP, LYGIO, RANGO IR PROGRESO JUOSTOS ATNAUJINIMAS
+
+    function updateProgress() {
+
+      const totalXP = skills
+        .filter(skill => skill.status === "Atlikta")
+        .reduce((sum, skill) => sum + skill.xp, 0);
+
+      const info = getLevelInfo(totalXP);
+
+      document.getElementById("totalXP").textContent = totalXP + " XP";
+      document.getElementById("currentLevel").textContent = info.level;
+      document.getElementById("currentRank").textContent = info.rank;
+
+      const progressBar = document.getElementById("progressBar");
+      progressBar.style.width = info.progress + "%";
+      progressBar.textContent = Math.round(info.progress) + "%";
+
+      document.getElementById("progressLabel").textContent =
+        info.level === LEVELS[LEVELS.length - 1].level
+          ? "Pasiektas maksimalus lygis!"
+          : "Progresas iki kito lygio";
+    }
+
+
+    // 7. STATISTIKOS ATNAUJINIMAS
+
+    function updateStatistics() {
+
+      const total = skills.length;
+      const completed = skills.filter(skill => skill.status === "Atlikta").length;
+      const percent = Math.round(completed / total * 100);
+
+      document.getElementById("totalSkills").textContent = total;
+      document.getElementById("completedSkills").textContent = completed;
+      document.getElementById("completedPercent").textContent = percent + "%";
+    }
+
+
+    // 8. VISKO ATNAUJINIMAS IR PALEIDIMAS
+
+    function updateAll() {
+      renderSkills();
+      updateProgress();
+      updateStatistics();
+    }
+
+    function initializeModule() {
+      loadSkills();
+      updateAll();
+    }
+
+    initializeModule();
+
+  </script>
+
+</body>
+</html>
